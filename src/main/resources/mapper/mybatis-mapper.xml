@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+<!--    <resultMap id="ResultMap" type="UserDTO">-->
+<!--        <id column="id" property="id" jdbcType="INTEGER"/>-->
+<!--        <result column="username" property="username" jdbcType="VARCHAR"/>-->
+<!--        <result column="password" property="password" jdbcType="VARCHAR"/>-->
+<!--        <result column="create_time" property="createTime" jdbcType="DATE"/>-->
+<!--    </resultMap>-->
+    <sql id="base_column">
+        id,username,password,create_time
+    </sql>
+
+    <insert id="insert" parameterType="UserDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users(
+            username,password,create_time
+        ) VALUES(
+            #{username,jdbcType=VARCHAR},#{password},#{createTime}
+        )
+    </insert>
+
+    <update id="updateById" parameterType="UserDTO">
+        UPDATE users
+        <set>
+            <if test="username != null">
+                ,username = #{username}
+            </if>
+            <if test="password != null">
+                ,password = #{password}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM users
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectById" parameterType="Integer" resultType="UserDTO">
+        SELECT
+            <include refid="base_column"/>
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectByUsername" parameterType="String" resultType="UserDTO">
+        SELECT
+            <include refid="base_column"/>
+        FROM users
+        WHERE username = #{username}
+    </select>
+
+    <select id="selectByIds" resultType="UserDTO">
+        SELECT
+            <include refid="base_column"/>
+        FROM users
+        WHERE id IN
+        <foreach item="id" collection="ids" separator="," open="(" close=")" index="">
+            #{id}
+        </foreach>
+        ORDER BY username
+    </select>
+
+</mapper>

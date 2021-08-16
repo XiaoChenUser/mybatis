@@ -1,0 +1,19 @@
+#正常的 JDBC 配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/java8?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&useUnicode=true
+    username: root
+    password: root
+#Mybatis 相关配置
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*-mapper.xml
+  type-aliases-package: com.example.dto
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com:
+      example:
+        mapper: DEBUG

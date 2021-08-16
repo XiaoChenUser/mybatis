@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BlogMapper">
+
+    <insert id="addBlog" parameterType="BlogDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO blog(title, author_id)
+        VALUES(#{title}, #{author.id})
+    </insert>
+
+    <update id="addCoAuthor">
+        UPDATE blog
+        SET co_author_id = #{coAuthorId}
+        WHERE id = #{blogId}
+    </update>
+
+    <insert id="addAuthor" parameterType="AuthorDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO author(username, password, email)
+        VALUES(#{username}, #{password}, #{email})
+    </insert>
+
+    <insert id="addComment" useGeneratedKeys="true" keyProperty="commentDTO.id">
+        INSERT INTO comment(username, comment, comment_time, blog_id)
+        VALUES(#{commentDTO.username}, #{commentDTO.comment}, #{commentDTO.commentTime}, #{id})
+    </insert>
+
+    <!--  嵌套结果映射  -->
+    <select id="selectBlog" parameterType="INTEGER" resultMap="blogResult">
+        SELECT
+            b.id id,
+            b.title title,
+            a.id author_id,
+            a.username author_username,
+            a.email author_email,
+            ca.id co_author_id,
+            ca.username co_author_username,
+            ca.email co_author_email,
+            c.id c_id,
+            c.username c_username,
+            c.comment c_comment,
+            c.comment_time c_comment_time
+        FROM blog b
+        LEFT OUTER JOIN author a ON b.author_id = a.id
+        LEFT OUTER JOIN author ca ON b.co_author_id = ca.id
+        LEFT OUTER JOIN comment c ON c.blog_id = b.id
+        WHERE b.id = #{id}
+    </select>
+
+    <resultMap id="blogResult" type="BlogDTO">
+        <id property="id" column="id"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <association property="author" resultMap="authorResult"/>
+        <association property="coAuthor" resultMap="authorResult" columnPrefix="co_"/>
+        <collection property="comments" javaType="ArrayList" ofType="CommentDTO" columnPrefix="c_" resultMap="commentResult" />
+    </resultMap>
+
+    <resultMap id="authorResult" type="AuthorDTO">
+        <id property="id" column="author_id"/>
+        <result property="username" column="author_username"/>
+        <result property="password" column="author_password"/>
+        <result property="email" column="author_email"/>
+    </resultMap>
+
+    <resultMap id="commentResult" type="CommentDTO">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="comment" column="comment"/>
+        <result property="commentTime" column="comment_time"/>
+    </resultMap>
+
+    <!--  嵌套 sql 查询  -->
+<!--    <select id="selectBlog" parameterType="INTEGER" resultMap="authorResult">-->
+<!--        SELECT * FROM blog WHERE id = #{id}-->
+<!--    </select>-->
+
+<!--    <resultMap id="authorResult" type="BlogDTO">-->
+<!--        <association property="author" javaType="AuthorDTO" column="author_id" select="selectAuthor"/>-->
+<!--        <association property="coAuthor" javaType="AuthorDTO" column="co_author_id" select="selectAuthor"/>-->
+<!--        <collection property="comments" javaType="ArrayList" column="id" ofType="CommentDTO" select="selectComment"/>-->
+<!--    </resultMap>-->
+
+<!--    <select id="selectAuthor" resultType="AuthorDTO">-->
+<!--        SELECT * FROM author WHERE id = #{id}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;  集合映射  &ndash;&gt;-->
+<!--    &lt;!&ndash;  1.集合 sql 查询  &ndash;&gt;-->
+<!--    <select id="selectComment" resultType = "CommentDTO">-->
+<!--        SELECT * FROM comment WHERE blog_id = #{id}-->
+<!--    </select>-->
+</mapper>
