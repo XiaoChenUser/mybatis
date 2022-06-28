@@ -1,22 +1,22 @@
 package com.example;
 
-import com.alibaba.fastjson.JSON;
-import com.example.dto.AuthorDTO;
-import com.example.dto.BlogDTO;
-import com.example.dto.CommentDTO;
-import com.example.dto.UserDTO;
+import com.alibaba.fastjson2.JSON;
+import com.example.dto.*;
 import com.example.mapper.BlogMapper;
+import com.example.mapper.TokenMapper;
 import com.example.mapper.UserMapper;
+import com.example.service.TokenService;
+import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.session.ExecutorType;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @SpringBootTest
 class MybatisDemoApplicationTests {
@@ -26,6 +26,12 @@ class MybatisDemoApplicationTests {
     private UserMapper userMapper;
     @Autowired
     private BlogMapper blogMapper;
+    @Autowired
+    private TokenMapper tokenMapper;
+    @Autowired
+    private SqlSessionFactory sessionFactory;
+    @Autowired
+    private TokenService tokenService;
 
     @Test
     void contextLoads() {
@@ -113,6 +119,68 @@ class MybatisDemoApplicationTests {
                 logger.info(JSON.toJSONString(blogDTO));
             }
         }
+    }
+
+    //耗时：16513
+    @Test
+    public void testAdd(){
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 1000; i++) {
+            TokenDTO tokenDTO = new TokenDTO(new Date(), UUID.randomUUID().toString().replace("-", ""));
+            tokenMapper.add(tokenDTO);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("耗时：" + (end-start));
+    }
+
+    //耗时：407
+    @Test
+    public void testAddBatch(){
+        long start = System.currentTimeMillis();
+        List<TokenDTO> list = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            TokenDTO tokenDTO = new TokenDTO(new Date(), UUID.randomUUID().toString().replace("-", ""));
+            list.add(tokenDTO);
+            if(list.size()>100){
+                tokenMapper.addBatch(list);
+                list.clear();
+            }
+        }
+        if (!list.isEmpty()) {
+            tokenMapper.addBatch(list);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("耗时：" + (end-start));
+    }
+
+    //耗时：16279
+    @Test
+    public void testBatchProcess() {
+        long start = System.currentTimeMillis();
+        List<TokenDTO> list = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            TokenDTO tokenDTO = new TokenDTO(new Date(), UUID.randomUUID().toString().replace("-", ""));
+            list.add(tokenDTO);
+        }
+        SqlSession sqlSession = sessionFactory.openSession(ExecutorType.BATCH, false);
+        TokenMapper newTokenMapper = sqlSession.getMapper(TokenMapper.class);
+        list.stream().forEach(tokenDTO -> newTokenMapper.add(tokenDTO));
+        sqlSession.commit();
+        sqlSession.clearCache();
+        sqlSession.close();
+        long end = System.currentTimeMillis();
+        System.out.println("耗时：" + (end-start));
+    }
+
+    @Test
+    public void testPageHelper(){
+        List<TokenDTO> tokens = tokenService.getTokenByPage(2, 0);
+//        for (TokenDTO tokenDTO :
+//                tokens) {
+//            System.out.println(tokenDTO);
+//        }
+        PageInfo<TokenDTO> pageInfo = new PageInfo<>(tokens);
+        System.out.println(pageInfo);
     }
     
 }

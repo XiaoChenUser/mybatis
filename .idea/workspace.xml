@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="459398d5-fe74-4921-96ae-6c79138b8449" name="Default Changelist" comment="" />
+    <list default="true" id="459398d5-fe74-4921-96ae-6c79138b8449" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_74.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/MybatisDemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/MybatisDemoApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,28 +29,45 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="E:\maven\apache-maven-3.6.3\repository" />
-        <option name="mavenHome" value="C:\Users\180355\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../../maven/apache-maven-3.6.3" />
         <option name="userSettingsFile" value="E:\maven\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="1vkhhKq0Gsc2ThXrGQQjVMKRt4f" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -49,19 +75,21 @@
       <recent name="E:\workspace\100-day\spring-boot\lesson2-db\mybatis-demo\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MybatisDemoApplicationTests.testSelectById">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MybatisDemoApplicationTests.testPageHelper">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MybatisDemoApplicationTests.testAddAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MybatisDemoApplicationTests.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-demo" />
       <extension name="coverage">
         <pattern>
@@ -71,13 +99,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.MybatisDemoApplicationTests" />
-      <option name="METHOD_NAME" value="testAddAuthor" />
+      <option name="METHOD_NAME" value="testAdd" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MybatisDemoApplicationTests.testAddCoAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MybatisDemoApplicationTests.testAddBatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-demo" />
       <extension name="coverage">
         <pattern>
@@ -87,13 +115,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.MybatisDemoApplicationTests" />
-      <option name="METHOD_NAME" value="testAddCoAuthor" />
+      <option name="METHOD_NAME" value="testAddBatch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MybatisDemoApplicationTests.testAddComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MybatisDemoApplicationTests.testBatchProcess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-demo" />
       <extension name="coverage">
         <pattern>
@@ -103,13 +131,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.MybatisDemoApplicationTests" />
-      <option name="METHOD_NAME" value="testAddComment" />
+      <option name="METHOD_NAME" value="testBatchProcess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MybatisDemoApplicationTests.testSelectBlog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MybatisDemoApplicationTests.testList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-demo" />
       <extension name="coverage">
         <pattern>
@@ -119,13 +147,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.MybatisDemoApplicationTests" />
-      <option name="METHOD_NAME" value="testSelectBlog" />
+      <option name="METHOD_NAME" value="testList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MybatisDemoApplicationTests.testSelectById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MybatisDemoApplicationTests.testPageHelper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-demo" />
       <extension name="coverage">
         <pattern>
@@ -135,7 +163,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.MybatisDemoApplicationTests" />
-      <option name="METHOD_NAME" value="testSelectById" />
+      <option name="METHOD_NAME" value="testPageHelper" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MybatisDemoApplicationTests.testSelectById" />
-        <item itemvalue="JUnit.MybatisDemoApplicationTests.testSelectBlog" />
-        <item itemvalue="JUnit.MybatisDemoApplicationTests.testAddComment" />
-        <item itemvalue="JUnit.MybatisDemoApplicationTests.testAddAuthor" />
-        <item itemvalue="JUnit.MybatisDemoApplicationTests.testAddCoAuthor" />
+        <item itemvalue="JUnit.MybatisDemoApplicationTests.testPageHelper" />
+        <item itemvalue="JUnit.MybatisDemoApplicationTests.testBatchProcess" />
+        <item itemvalue="JUnit.MybatisDemoApplicationTests.testAdd" />
+        <item itemvalue="JUnit.MybatisDemoApplicationTests.testAddBatch" />
+        <item itemvalue="JUnit.MybatisDemoApplicationTests.testList" />
       </list>
     </recent_temporary>
   </component>
@@ -174,52 +202,33 @@
       <workItem from="1628328357439" duration="15000" />
       <workItem from="1628328437009" duration="612000" />
       <workItem from="1628752351570" duration="2180000" />
+      <workItem from="1632306742158" duration="1079000" />
+      <workItem from="1632444493516" duration="261000" />
+      <workItem from="1635131169196" duration="2602000" />
+      <workItem from="1635845311621" duration="23000" />
+      <workItem from="1636703270282" duration="1406000" />
+      <workItem from="1656384274674" duration="275000" />
+      <workItem from="1656384666837" duration="13851000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1627546490138">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627546490138" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1627549315279">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1627549315279" />
-    <state width="1876" height="540" key="GridCell.Tab.0.bottom" timestamp="1628755681909">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="540" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628755681909" />
-    <state width="1876" height="540" key="GridCell.Tab.0.center" timestamp="1628755681909">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="540" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628755681909" />
-    <state width="1876" height="540" key="GridCell.Tab.0.left" timestamp="1628755681909">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="540" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628755681909" />
-    <state width="1876" height="540" key="GridCell.Tab.0.right" timestamp="1628755681909">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="540" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628755681909" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1627118662068">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1627118662068" />
-    <state x="330" y="179" key="new project wizard" timestamp="1627887879347">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="330" y="179" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1627887879347" />
-    <state x="616" y="235" width="672" height="677" key="run.anything.popup" timestamp="1627378216609">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="235" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627378216609" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1627883316839">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627883316839" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/example/MybatisDemoApplicationTests.java</url>
+          <line>144</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/example/MybatisDemoApplicationTests.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TokenMapper">
+
+    <insert id="add" parameterType="TokenDTO">
+        INSERT INTO `token`(
+            `login_time`,`token`
+        ) VALUES (
+            #{loginTime}, #{token}
+        )
+    </insert>
+
+    <insert id="addBatch" parameterType="TokenDTO">
+        INSERT INTO `token`(
+            `login_time`,`token`
+        )VALUES
+        <foreach collection="list" separator="," item="item">
+            (#{item.loginTime},#{item.token})
+        </foreach>
+    </insert>
+
+    <select id="getAll" resultType="TokenDTO">
+        SELECT * FROM `token`
+    </select>
+
+
+</mapper>
